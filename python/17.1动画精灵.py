@@ -1,4 +1,4 @@
-import pygame,sys
+import pygame,sys,random   # 调用random时候需要首先导入
 pygame.init   # 初始化surface
 screen = pygame.display.set_mode([1000,1000])
 
@@ -15,6 +15,10 @@ class Dogs (pygame.sprite.Sprite):  # pygame.sprite.Sprite为动画精灵的父�
     # 定义动画精灵移动的方法
     def move(self):
         self.r = self.r.move(self.speed)
+        if self.r.top < 0 or self.r.bottom > screen.get_height():
+            self.speed[1] = -self.speed[1]
+        if self.r.left > 0 or self.r.right > screen.get_width():
+            self.speed[0] = -self.speed[0]
 
 
 
@@ -22,7 +26,7 @@ class Dogs (pygame.sprite.Sprite):  # pygame.sprite.Sprite为动画精灵的父�
 sprits = pygame.sprite.Group()  # 动画精灵中用于显示所有对象的包袋，返回一个group
 for i in range(0,3):
     for j in range(0,3):
-        dog = Dogs("kuankuan_gaitubao_75x100.png", [100+i*100 , 100+j*100], [1,2]) # 添加一个新位置的对象
+        dog = Dogs("kuankuan_gaitubao_75x100.png", [100+i*100 , 100+j*100], [random.randint(-8,9),random.randint(-2,8)]) # 添加一个新位置的对象,生成关于速度的随机数，让每个小球随机移动
         sprits.add(dog)  # 新的对象加入sprits包中
 
 while True:
