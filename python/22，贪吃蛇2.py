@@ -36,3 +36,10 @@ while True:
                     print('左')
                     y_spead = 0
                     x_spead = -1
+
+ # 生成食物
+            for i in range ():
+                a = [200,400,50]
+                b = [300,100,500]
+                len = random.randint(10, 100)
+                food = pygame.draw.rect(screen, [160, 32, 240], (a[i], b[i], len, 4))
