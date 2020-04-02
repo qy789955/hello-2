@@ -16,7 +16,7 @@ from sklearn.metrics import make_scorer
 
 # 一，数据处理
 # 1，读取数据，浏览数据
-data = pd.read_csv("/Users/liudong/python/hello-2/projects/machine_learning projects3-finding donors/census.csv")
+data = pd.read_csv("./census.csv")
 # 显示所有的行列，pd.set_option("display.max_columns",None) pd.set_option("display.max_rows",None) None表示全部，可以用数字代替
 pd.set_option("display.max_columns",None)
 at_most_50k = []
